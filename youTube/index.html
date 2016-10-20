@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo AJAX jQuery</title>
+</head>
+<body>
+
+	<h1 id="title"></h1>
+	<div id="video">
+		<a href="">
+			<img src="" id="image">
+		</a>	
+	</div>
+	<button>Get information</button>
+	
+
+	<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script>
+
+	$("button").on("click", function() {
+
+		$.ajax({
+			url: 'info.json',
+			dataType: 'json'
+		})
+
+		.done ( function ( info ){
+
+			var title = info.data.items[0].title;
+			var image = info.data.items[0].thumbnail.default;
+			var link = info.data.items[0].player.default;
+
+			$("#title").html(title);
+
+			$("#image").attr("src", image);
+
+			$("a").attr("href", link).attr("target", "_blank");
+
+
+		})
+
+		})
+
+	
+
+
+
+
+	</script>
+</body>
+</html>
