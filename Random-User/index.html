@@ -121,6 +121,9 @@
 			}
 
 			var user = dataUsers.results[0];
+			var firstNameUser = user.name.first;
+			var lastNameUser = user.name.last;
+			var nameCompletUser = firstNameUser + " " + lastNameUser;
 			var registrationDate = user.registered;
 			var dateBirth = user.dob;
 			var nationality = user.nat;
@@ -131,6 +134,8 @@
 			var phoneNumber = user.phone;
 			var photo = user.picture.thumbnail;
 
+
+			$("h3").text(nameCompletUser);
 			$(".registration-date").text(registrationDate);
 			$(".born-date").text(dateBirth);
 			$(".nationality").html('<span class="flag-icon flag-icon-'+ nationality.toLowerCase() + '"></span> ' + nameNationality);
